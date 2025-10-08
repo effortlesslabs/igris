@@ -3,7 +3,6 @@
 import { useMemo } from 'react'
 import type { SwapRoute } from '@/types/route'
 import DestAddressDialog from './dest-address-sheet'
-// import { PreferenceTabs } from './preference-tabs'
 import RouteDialog from './route-dialog'
 import Timer from './timer'
 

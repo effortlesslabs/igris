@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Instrument_Sans } from 'next/font/google'
 import './globals.css'
+import { Analytics } from '@vercel/analytics/next'
 import { Layout } from '@/components/layout'
 import { ErrorBoundary } from '@/components/ui/error-boundary'
 import { Toaster } from '@/components/ui/sonner'
@@ -37,6 +38,7 @@ export default function RootLayout({
             </WalletProviders>
           </QueryProvider>
         </ErrorBoundary>
+        <Analytics />
       </body>
     </html>
   )

@@ -12,6 +12,15 @@ import {
 } from '@reown/appkit/react'
 import { BitcoinAdapter } from '@reown/appkit-adapter-bitcoin'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
+import { porto } from 'wagmi/connectors'
+
+import { Dialog, Mode, Porto } from 'porto'
+
+const porto = Porto.create({
+  mode: Mode.dialog({
+    renderer: Dialog.iframe(),
+  }),
+})
 
 export const projectId = process.env.NEXT_PUBLIC_PROJECT_ID!
 
