@@ -26,7 +26,7 @@ export const wagmiAdapter = new WagmiAdapter({
   networks,
   connectors: [porto()],
   projectId,
-  multiInjectedProviderDiscovery: false,
+  multiInjectedProviderDiscovery: true,
   ssr: true,
 })
 
