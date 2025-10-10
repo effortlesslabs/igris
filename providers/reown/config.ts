@@ -12,15 +12,7 @@ import {
 } from '@reown/appkit/react'
 import { BitcoinAdapter } from '@reown/appkit-adapter-bitcoin'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
-import { porto } from 'wagmi/connectors'
-
-import { Dialog, Mode, Porto } from 'porto'
-
-const porto = Porto.create({
-  mode: Mode.dialog({
-    renderer: Dialog.iframe(),
-  }),
-})
+import { porto } from 'porto/wagmi'
 
 export const projectId = process.env.NEXT_PUBLIC_PROJECT_ID!
 
@@ -32,7 +24,10 @@ export const networks = [mainnet, polygon, arbitrum, optimism, bsc, base, bitcoi
 // Setup wagmi adapter
 export const wagmiAdapter = new WagmiAdapter({
   networks,
+  connectors: [porto()],
   projectId,
+  multiInjectedProviderDiscovery: false,
+  ssr: true,
 })
 
 export const bitcoinAdapter = new BitcoinAdapter({
@@ -62,4 +57,10 @@ export {
   useWalletInfo,
   useAppKitNetwork,
   useDisconnect,
+}
+
+declare module 'wagmi' {
+  interface Register {
+    config: typeof wagmiAdapter.wagmiConfig
+  }
 }
