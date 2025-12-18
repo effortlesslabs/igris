@@ -37,7 +37,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",
     "fuse.js": "^7.1.0",
-    "next": "15.4.5",
+    "next": "15.4.10",
     "next-themes": "^0.4.6",
     "numbro": "^2.5.0",
     "pino-pretty": "^13.1.1",
